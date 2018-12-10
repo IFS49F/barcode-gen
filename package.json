@@ -1,0 +1,29 @@
+{
+  "name": "barcode-gen",
+  "version": "1.0.0",
+  "description": "Barcode generator app",
+  "repository": "IFS49F/barcode-gen",
+  "bin": "carlo.js",
+  "author": {
+    "name": "James Shih",
+    "url": "https://hyjk2000.github.io"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "node carlo.js",
+    "build": "pkg ."
+  },
+  "dependencies": {
+    "bwip-js": "^1.7.1",
+    "carlo": "^0.9.41"
+  },
+  "pkg": {
+    "scripts": [
+      "*.js"
+    ],
+    "assets": [
+      "app/**/*",
+      "node_modules/bwip-js/fonts/**/*"
+    ]
+  }
+}

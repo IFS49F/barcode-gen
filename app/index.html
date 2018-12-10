@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Barcode Generator</title>
+    <link rel="stylesheet" href="css/photon.min.css">
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+    <div class="window">
+
+      <!-- Your app's content goes inside .window-content -->
+      <div class="window-content">
+        <div class="pane-group">
+          <div class="pane pane-sm sidebar">
+            <nav class="nav-group">
+              <h5 class="nav-group-title">Two-dimensional</h5>
+              <a class="nav-group-item active" href="#pdf417">
+                <span class="icon icon-menu"></span>
+                PDF417
+              </a>
+              <a class="nav-group-item" href="#qr">
+                <span class="icon icon-layout"></span>
+                QR
+              </a>
+              <h5 class="nav-group-title">Point of Sale</h5>
+              <a class="nav-group-item" href="#goods">
+                <span class="icon icon-tag"></span>
+                Goods
+              </a>
+              <a class="nav-group-item" href="#publication">
+                <span class="icon icon-book"></span>
+                Publication
+              </a>
+            </nav>
+          </div>
+
+          <div class="pane padded-more">
+            <form id="pdf417">
+              <input type="hidden" name="bcid" value="pdf417">
+              <div class="form-group">
+                <label for="text">Text</label>
+                <textarea class="form-control" name="text" id="text" rows="5" style="resize: vertical"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="columns">Columns</label>
+                <input class="form-control" type="number" name="columns" id="columns" min="0" value="13">
+              </div>
+              <div class="form-group">
+                <label for="rows">Rows</label>
+                <input class="form-control" type="number" name="rows" id="columns" min="0" value="29">
+              </div>
+              <div class="form-group">
+                <label for="alttext">Alt Text</label>
+                <input class="form-control" type="text" name="alttext" id="alttext">
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-form btn-primary">Generate</button>
+              </div>
+            </form>
+
+            <form id="qr">
+              <input type="hidden" name="bcid" value="qrcode">
+              <div class="form-group">
+                <label for="text">Text</label>
+                <textarea class="form-control" name="text" id="text" rows="5" style="resize: vertical"></textarea>
+              </div>
+              <div class="form-group">
+                  <label for="columns">Scale</label>
+                  <input class="form-control" type="number" name="scale" id="scale" min="1" value="5">
+                </div>
+              <div class="form-group">
+                <label for="alttext">Alt Text</label>
+                <input class="form-control" type="text" name="alttext" id="alttext">
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-form btn-primary">Generate</button>
+              </div>
+            </form>
+
+            <form id="goods">
+              <div class="form-group">
+                <label for="bcid">Variant</label>
+                <select class="form-control" name="bcid" id="bcid">
+                  <option value="upca">UPC-A</option>
+                  <option value="upce">UPC-E</option>
+                  <option value="ean13">EAN-13</option>
+                  <option value="ean8">EAN-8</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="text">Text</label>
+                <input class="form-control" type="text" name="text" id="text">
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input class="form-control" type="checkbox" name="includetext" id="includetext" value="true" checked>
+                  Include Text
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input class="form-control" type="checkbox" name="guardwhitespace" id="guardwhitespace" value="true" checked>
+                  Guard Whitespace
+                </label>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-form btn-primary">Generate</button>
+              </div>
+            </form>
+
+            <form id="publication">
+              <div class="form-group">
+                <label for="bcid">Variant</label>
+                <select class="form-control" name="bcid" id="bcid">
+                  <option value="isbn">ISBN</option>
+                  <option value="ismn">ISMN</option>
+                  <option value="issn">ISSN</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="text">Text</label>
+                <input class="form-control" type="text" name="text" id="text">
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input class="form-control" type="checkbox" name="includetext" id="includetext" value="true" checked>
+                  Include Text
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input class="form-control" type="checkbox" name="guardwhitespace" id="guardwhitespace" value="true" checked>
+                  Guard Whitespace
+                </label>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-form btn-primary">Generate</button>
+              </div>
+            </form>
+
+            <div class="padded-vertically-more" id="output"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
