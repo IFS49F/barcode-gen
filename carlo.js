@@ -1,12 +1,6 @@
 const carlo = require('carlo');
-const bwipjs = require('bwip-js');
 const { app: appConfig } = require('./config');
-
-const generateToBase64 = (options) => new Promise((resolve, reject) => {
-  bwipjs.toBuffer(options, (err, png) => err
-    ? reject(err)
-    : resolve('data:image/png;base64,' + png.toString('base64')));
-});
+const generateToBase64 = require('./generate');
 
 (async () => {
   const app = await carlo.launch(appConfig);

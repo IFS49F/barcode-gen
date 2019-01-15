@@ -3,6 +3,12 @@ const CONFIG = {
     width: 700,
     height: 700,
     channel: ['canary', 'stable']
+  },
+  parcel: {
+    outDir: './public'
+  },
+  static: {
+    maxage: 600000
   }
 };
 

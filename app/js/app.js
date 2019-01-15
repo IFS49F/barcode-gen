@@ -1,3 +1,20 @@
+if (typeof window.generateToBase64 === 'undefined') {
+  window.generateToBase64 = async (options) => {
+    const response = await fetch('/generate', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(options)
+    });
+    if (response.ok) {
+      return await response.text();
+    } else {
+      throw new Error(await response.text());
+    }
+  };
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const batchApply = selector => callback => Array.prototype.forEach.call(
     document.querySelectorAll(selector),
@@ -24,10 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const options = {};
     const formData = new FormData(e.target);
     formData.forEach((v, k) => options[k] = v);
+    clearOutput();
     generateToBase64(options).then((data) => {
-      clearOutput();
       $output((output) => {
         const img = document.createElement('img');
+        img.src = data;
         img.srcset = `${data}, ${data} 2x`;
         output.appendChild(img);
       });

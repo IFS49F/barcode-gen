@@ -11,11 +11,31 @@
   "license": "MIT",
   "scripts": {
     "start": "node carlo.js",
+    "start:web": "node koa.js",
     "build": "pkg ."
   },
   "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.2.3",
     "bwip-js": "^1.7.1",
-    "carlo": "^0.9.41"
+    "carlo": "^0.9.41",
+    "koa": "^2.6.2",
+    "koa-body": "^4.0.6",
+    "koa-conditional-get": "^2.0.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "parcel-bundler": "^1.11.0",
+    "parcel-plugin-compress": "^1.0.6"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "browserslist": "last 2 Chrome versions",
+  "compress": {
+    "threshold": 10240
   },
   "pkg": {
     "scripts": [
