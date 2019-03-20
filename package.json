@@ -12,7 +12,7 @@
   "scripts": {
     "start": "node carlo.js",
     "start:web": "node koa.js",
-    "build": "pkg ."
+    "build:pkg": "pkg ."
   },
   "dependencies": {
     "@babel/core": "^7.2.2",
